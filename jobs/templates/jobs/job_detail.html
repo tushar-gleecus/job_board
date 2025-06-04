@@ -9,4 +9,6 @@
 <p><strong>Description:</strong><br>{{ job.description }}</p>
 <p><em>Posted by {{ job.posted_by.username }} on {{ job.created_at }}</em></p>
 <a href="/">← Back to job list</a>
+<a href="{% url 'job_edit' job.pk %}">Edit</a> |
+<a href="{% url 'job_delete' job.pk %}">Delete</a>
 {% endblock %}
