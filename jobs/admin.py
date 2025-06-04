@@ -11,5 +11,11 @@ class ApplicationAdmin(admin.ModelAdmin):
     list_display = ('job', 'applicant', 'applied_at')
     search_fields = ('job__title', 'applicant__username')
 
+class ApplicationInline(admin.TabularInline):  # or StackedInline
+    model = Application
+    extra = 0  # no empty forms by default
+    readonly_fields = ('applicant', 'cover_letter', 'applied_at')
+    can_delete = False    
+
 admin.site.register(Job, JobAdmin)
 admin.site.register(Application, ApplicationAdmin)

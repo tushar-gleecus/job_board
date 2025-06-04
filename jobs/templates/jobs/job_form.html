@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Post/Edit Job{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>{{ view.object.pk|yesno:"Edit Job,Post a New Job" }}</h2>
+
+  <form method="POST" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{% url 'job_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
