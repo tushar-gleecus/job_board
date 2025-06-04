@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ job.title }}{% endblock %}
+
+{% block content %}
+<h2>{{ job.title }}</h2>
+<p><strong>Company:</strong> {{ job.company }}</p>
+<p><strong>Location:</strong> {{ job.location }}</p>
+<p><strong>Description:</strong><br>{{ job.description }}</p>
+<p><em>Posted by {{ job.posted_by.username }} on {{ job.created_at }}</em></p>
+<a href="/">← Back to job list</a>
+{% endblock %}
